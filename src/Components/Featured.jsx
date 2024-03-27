@@ -1,10 +1,9 @@
 import { motion, useAnimation } from 'framer-motion';
-import { Power3 } from "gsap/all";
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 function Featured() {
 
-  const cards = [useAnimation(), useAnimation()];
+  const cards = [useAnimation(), useAnimation(), useAnimation(), useAnimation()];
 
   const handleHover = (index) => {
     cards[index].start({ y: "0" });
@@ -15,19 +14,19 @@ function Featured() {
   };
 
   return (
-    <div className="w-full py-14 rounded-tl-3xl rounded-tr-3xl">
+    <div className="w-full py-14 rounded-tl-3xl rounded-tr-3xl overflow-hidden">
       <div className="w-full px-20 border-b-[1px] border-zinc-700 pb-20">
         <h1 className="text-[8vw] font-['Neue_Montreal'] tracking-tight">
           Featured Projects
         </h1>
       </div>
       <div className="px-10">
-        <div className="cards grid grid-cols-2 gap-10 mt-10">
+        <div className="cards grid grid-cols-1 sm:grid-cols-2 gap-10 mt-10">
           {/* Card 1 */}
           <motion.div
             onHoverStart={() => handleHover(0)}
             onHoverEnd={() => handleHoverEnd(0)}
-            className="card-container relative h-[70vh]"
+            className="card-container relative h-[70vh] sm:h-auto"
           >
             <div className="card-1 w-full h-full rounded-xl">
               <li className="text-2xl mb-1">FYDE</li>
@@ -56,7 +55,7 @@ function Featured() {
           <motion.div
             onHoverStart={() => handleHover(1)}
             onHoverEnd={() => handleHoverEnd(1)}
-            className="card-container relative h-[70vh]"
+            className="card-container relative h-[70vh] sm:h-auto"
           >
             <div className="card-1 w-full h-full rounded-xl">
               <li className="text-2xl mb-1">VISE</li>
@@ -81,12 +80,13 @@ function Featured() {
             </div>
           </motion.div>
         </div>
-        <div className="cards grid grid-cols-2 gap-10 mt-10">
+
+        <div className="cards grid grid-cols-1 sm:grid-cols-2 gap-10 mt-10">
           {/* Card 3 */}
           <motion.div
-            onHoverStart={() => handleHover(0)}
-            onHoverEnd={() => handleHoverEnd(0)}
-            className="card-container relative h-[70vh]"
+            onHoverStart={() => handleHover(2)}
+            onHoverEnd={() => handleHoverEnd(2)}
+            className="card-container relative h-[70vh] sm:h-auto"
           >
             <div className="card-1 w-full h-full rounded-xl">
               <li className="text-2xl mb-1">BEAN</li>
@@ -95,7 +95,7 @@ function Featured() {
                   <motion.span
                     key={index}
                     initial={{ y: "100%" }}
-                    animate={cards[0]}
+                    animate={cards[2]}
                     transition={{ ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
                     className=" inline-block"
                   >
@@ -113,9 +113,9 @@ function Featured() {
 
           {/* Card 4 */}
           <motion.div
-            onHoverStart={() => handleHover(1)}
-            onHoverEnd={() => handleHoverEnd(1)}
-            className="card-container relative h-[70vh]"
+            onHoverStart={() => handleHover(3)}
+            onHoverEnd={() => handleHoverEnd(3)}
+            className="card-container relative h-[70vh] sm:h-auto"
           >
             <div className="card-1 w-full h-full rounded-xl">
               <li className="text-2xl mb-1">OFFICE</li>
@@ -124,7 +124,7 @@ function Featured() {
                   <motion.span
                     key={index}
                     initial={{ y: "100%" }}
-                    animate={cards[1]}
+                    animate={cards[3]}
                     transition={{ ease: [0.22, 1, 0.36, 1], delay: index * 0.1 }}
                     className=" inline-block"
                   >
@@ -142,7 +142,8 @@ function Featured() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Featured;
+
